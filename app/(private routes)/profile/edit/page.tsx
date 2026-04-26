@@ -46,13 +46,15 @@ const EditProfilePage = () => {
       <div className={css.profileCard}>
         <h1 className={css.formTitle}>Edit Profile</h1>
 
-        <Image
-          src={user.avatar}
-          alt="User Avatar"
-          width={120}
-          height={120}
-          className={css.avatar}
-        />
+        {user?.avatar && (
+          <Image
+            src={user.avatar}
+            alt="User Avatar"
+            width={120}
+            height={120}
+            className={css.avatar}
+          />
+        )}
 
         <form className={css.profileInfo} action={handleSubmit}>
           <div className={css.usernameWrapper}>
@@ -61,11 +63,11 @@ const EditProfilePage = () => {
               id="username"
               type="text"
               className={css.input}
-              defaultValue={user?.username}
+              defaultValue={user?.userName}
             />
           </div>
 
-          <p>Email: {user.email}</p>
+          <p>Email: {user?.email}</p>
 
           <div className={css.actions}>
             <button type="submit" className={css.saveButton}>

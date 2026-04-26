@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { checkSession } from "./lib/api/serverApi";
 import { parse } from "cookie";
 
-const privateRoutes = ["/profile"];
+const privateRoutes = ["/profile", "/notes"];
 const publicRoutes = ["/sign-in", "/sign-up"];
 
 export async function proxy(request: NextRequest) {
