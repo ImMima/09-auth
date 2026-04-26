@@ -62,12 +62,12 @@ export const checkSession = async () => {
 };
 
 export const getMe = async () => {
-  const { data } = await nextServer.get<User>("/auth/me");
+  const { data } = await nextServer.get<User>("/users/me");
   return data;
 };
 
 export const updateMe = async (data: { email?: string; username: string }) => {
-  const res = await nextServer.patch<User>("/auth/me", data);
+  const res = await nextServer.patch<User>("/users/me", data);
   return res.data;
 };
 

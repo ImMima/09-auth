@@ -46,7 +46,7 @@ const Profile = async () => {
           />
         </div>
         <div className={css.profileInfo}>
-          <p>Username: {user.userName}</p>
+          <p>username: {user.username}</p>
           <p>Email: {user.email}</p>
         </div>
       </div>

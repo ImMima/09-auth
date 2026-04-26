@@ -22,7 +22,7 @@ export interface CreateNote {
 export type RegisterRequest = {
   email: string;
   password: string;
-  userName: string;
+  username: string;
 };
 
 export type LoginRequest = {

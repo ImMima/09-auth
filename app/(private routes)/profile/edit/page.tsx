@@ -18,10 +18,10 @@ const EditProfilePage = () => {
     try {
       const formValues = Object.fromEntries(formData) as { username: string };
 
-      const newUserName = formValues.username;
-      if (newUserName && newUserName.trim()) {
+      const newusername = formValues.username;
+      if (newusername && newusername.trim()) {
         const res = await updateMe({
-          username: newUserName,
+          username: newusername,
           email: user?.email,
         });
         if (res) {
@@ -58,12 +58,12 @@ const EditProfilePage = () => {
 
         <form className={css.profileInfo} action={handleSubmit}>
           <div className={css.usernameWrapper}>
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="username">username:</label>
             <input
               id="username"
               type="text"
               className={css.input}
-              defaultValue={user?.userName}
+              defaultValue={user?.username}
             />
           </div>
 
@@ -77,7 +77,7 @@ const EditProfilePage = () => {
               type="button"
               className={css.cancelButton}
               onClick={() => {
-                router.push("/profile");
+                router.back();
               }}
             >
               Cancel
