@@ -66,7 +66,7 @@ export const getMe = async () => {
   return data;
 };
 
-export const updateMe = async (data: { email: string; username: string }) => {
+export const updateMe = async (data: { email?: string; username: string }) => {
   const res = await nextServer.patch<User>("/auth/me", data);
   return res.data;
 };
