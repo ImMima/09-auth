@@ -22,7 +22,6 @@ const EditProfilePage = () => {
       if (newusername && newusername.trim()) {
         const res = await updateMe({
           username: newusername,
-          email: user?.email,
         });
         if (res) {
           setUser(res);
