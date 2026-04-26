@@ -4,7 +4,7 @@ import {
   CreateNote,
   RegisterRequest,
   LoginRequest,
-  CheckSessionRequest,
+  CheckSessionResponse,
 } from "@/lib/api/api";
 import { User } from "@/types/user";
 import { Note } from "@/types/note";
@@ -46,27 +46,27 @@ export const fetchNoteById = async (id: string): Promise<Note> => {
   return data;
 };
 
-export const register = async (data: RegisterRequest) => {
+export const register = async (data: RegisterRequest): Promise<User> => {
   const res = await nextServer.post<User>("/auth/register", data);
   return res.data;
 };
 
-export const login = async (data: LoginRequest) => {
+export const login = async (data: LoginRequest): Promise<User> => {
   const res = await nextServer.post<User>("/auth/login", data);
   return res.data;
 };
 
-export const checkSession = async () => {
-  const res = await nextServer.get<CheckSessionRequest>("/auth/session");
+export const checkSession = async (): Promise<CheckSessionResponse> => {
+  const res = await nextServer.get<CheckSessionResponse>("/auth/session");
   return res.data;
 };
 
-export const getMe = async () => {
+export const getMe = async (): Promise<User> => {
   const { data } = await nextServer.get<User>("/users/me");
   return data;
 };
 
-export const updateMe = async (data: { username: string }) => {
+export const updateMe = async (data: { username: string }): Promise<User> => {
   const res = await nextServer.patch<User>("/users/me", data);
   return res.data;
 };

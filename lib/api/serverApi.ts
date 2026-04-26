@@ -1,4 +1,4 @@
-import { nextServer, FetchNotesResponse, CheckSessionRequest } from "./api";
+import { nextServer, FetchNotesResponse, CheckSessionResponse } from "./api";
 import type { User } from "@/types/user";
 import { Note } from "@/types/note";
 import { cookies } from "next/headers";
@@ -41,7 +41,7 @@ export const fetchNoteById = async (id: string): Promise<Note> => {
 };
 
 export const checkSession = async () => {
-  const res = await nextServer.get<CheckSessionRequest>("/auth/session", {
+  const res = await nextServer.get<CheckSessionResponse>("/auth/session", {
     headers: await getAuthHeaders(),
   });
   return res;
@@ -52,4 +52,14 @@ export const getMe = async () => {
     headers: await getAuthHeaders(),
   });
   return data;
+};
+
+export const refreshSession = async (
+  refreshToken: string,
+): Promise<{ accessToken: string } | null> => {
+  const res = await nextServer.post<{ accessToken: string }>("/auth/refresh", {
+    refreshToken,
+  });
+
+  return res.data;
 };

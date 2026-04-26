@@ -30,6 +30,6 @@ export type LoginRequest = {
   password: string;
 };
 
-export type CheckSessionRequest = {
+export type CheckSessionResponse = {
   success: boolean;
 };
