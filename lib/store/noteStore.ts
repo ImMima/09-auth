@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { CreateNote } from "../api/api";
+import type { CreateNote } from "../api/api";
 
 type SaveDraftNote = {
   draft: CreateNote;

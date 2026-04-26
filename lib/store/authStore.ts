@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { User } from "../api/api";
+import type { User } from "@/types/user";
 
 type AuthStore = {
   isAuthenticated: boolean;
